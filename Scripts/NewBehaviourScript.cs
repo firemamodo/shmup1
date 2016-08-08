@@ -17,5 +17,6 @@ public class NewBehaviourScript : MonoBehaviour {
         vertSpeed=  Input.GetAxis("verticalLS");
         horzSpeed = Input.GetAxis("horizontalLS");
 
+        Debug.log("Vert is " + vertSpeed + " Horiz is " + horzSpeed);
     }
 }
