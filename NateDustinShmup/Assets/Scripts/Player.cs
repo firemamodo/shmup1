@@ -14,8 +14,9 @@ public class NewBehaviourScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        vertSpeed=  Input.GetAxis("verticalLS");
+        vertSpeed =  Input.GetAxis("verticalLS");
         horzSpeed = Input.GetAxis("horizontalLS");
 
+        Debug.Log("Vert speed is " + vertSpeed + " Horz speed is " + horzSpeed);
     }
 }
