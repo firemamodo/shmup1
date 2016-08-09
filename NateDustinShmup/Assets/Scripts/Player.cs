@@ -14,8 +14,11 @@ public class Player : MonoBehaviour {
     
     GameObject UImenu;
 
+    GameObject player;
+    public GameObject projectile;
+
     public Toggle kboardToggle;
-    public Toggle controlllerToggle;
+    public Toggle controllerToggle;
 
     private bool isShowing=false;
 
@@ -24,7 +27,8 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        UImenu= GameObject.FindGameObjectWithTag("MainCanvas");
+        player = GameObject.FindGameObjectWithTag("Player");
+        UImenu = GameObject.FindGameObjectWithTag("MainCanvas");
         UImenu.SetActive(isShowing);
 
 
@@ -53,23 +57,31 @@ public class Player : MonoBehaviour {
             if (Input.GetKey(KeyCode.D))
             {
                 transform.Translate(new Vector3(-1, 0, 0) * speedMultiplier * Time.deltaTime);
-                Debug.Log("A was pushed");
+                Debug.Log("D was pushed");
             }
 
             if (Input.GetKey(KeyCode.W))
             {
                 transform.Translate(new Vector3(0, 0, -1) * speedMultiplier * Time.deltaTime);
-                Debug.Log("A was pushed");
+                Debug.Log("W was pushed");
             }
 
             if (Input.GetKey(KeyCode.S))
             {
                 transform.Translate(new Vector3(0, 0, 1) * speedMultiplier * Time.deltaTime);
-                Debug.Log("A was pushed");
+                Debug.Log("S was pushed");
             }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                
+                Debug.Log("Space!");
+                Instantiate(projectile, player.transform.position, player.transform.rotation);
+            }
+
         }
 
-        else if (controlllerToggle.isOn==true)
+        else if (controllerToggle.isOn==true)
         {
 
             vertSpeed = Input.GetAxis("vertical_LS");

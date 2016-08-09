@@ -683,7 +683,7 @@ GameObject:
   - 114: {fileID: 1663430631}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,8 +757,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertSpeed: 0
   horzSpeed: 0
+  projectile: {fileID: 186684, guid: 984cf5241a548d94eb7ff19764e03b12, type: 2}
   kboardToggle: {fileID: 1036935978}
-  controlllerToggle: {fileID: 1874798039}
+  controllerToggle: {fileID: 0}
 --- !u!1 &1725475198
 GameObject:
   m_ObjectHideFlags: 0
