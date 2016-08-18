@@ -187,7 +187,7 @@ RectTransform:
   - {fileID: 1036935977}
   - {fileID: 1874798038}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -321,6 +321,33 @@ RectTransform:
   m_AnchoredPosition: {x: 370.329987, y: 75.3399963}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
+--- !u!1 &706571079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 706571080}
+  m_Layer: 0
+  m_Name: camTarget
+  m_TagString: CamTarget
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &706571080
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706571079}
+  m_LocalRotation: {x: -1.15202326e-07, y: -.707106709, z: .707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: .99000001, y: 26.7927494, z: -.75999999}
+  m_LocalScale: {x: 1.93164051, y: 1.93164027, z: 1.93164027}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &728477684
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &859955458
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +707,6 @@ GameObject:
   - 33: {fileID: 1663430629}
   - 65: {fileID: 1663430628}
   - 23: {fileID: 1663430627}
-  - 114: {fileID: 1663430631}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -737,29 +763,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663430626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .99000001, y: 1.54999995, z: -.75999999}
-  m_LocalScale: {x: 3.52060366, y: 3.52060676, z: 3.52060676}
-  m_Children:
-  - {fileID: 1725475199}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!114 &1663430631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1663430626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b6557ef9784a04da74de964c931494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vertSpeed: 0
-  horzSpeed: 0
-  projectile: {fileID: 171456, guid: 984cf5241a548d94eb7ff19764e03b12, type: 2}
-  kboardToggle: {fileID: 1036935978}
-  controllerToggle: {fileID: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 13.068037}
+  m_LocalScale: {x: 1.82259774, y: 1.82259977, z: 1.82259977}
+  m_Children: []
+  m_Father: {fileID: 1725475199}
+  m_RootOrder: 0
 --- !u!1 &1725475198
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +781,7 @@ GameObject:
   - 92: {fileID: 1725475202}
   - 124: {fileID: 1725475201}
   - 81: {fileID: 1725475200}
+  - 114: {fileID: 1725475204}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -786,11 +796,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1725475198}
   m_LocalRotation: {x: -1.15202326e-07, y: -.707106709, z: .707106829, w: -1.15202312e-07}
-  m_LocalPosition: {x: 0, y: 4.80000019, z: 0}
-  m_LocalScale: {x: .548667371, y: .548666775, z: .548666775}
-  m_Children: []
-  m_Father: {fileID: 1663430630}
-  m_RootOrder: 0
+  m_LocalPosition: {x: .99000001, y: 26.7927494, z: -.75999999}
+  m_LocalScale: {x: 1.93164051, y: 1.93164027, z: 1.93164027}
+  m_Children:
+  - {fileID: 1663430630}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!81 &1725475200
 AudioListener:
   m_ObjectHideFlags: 0
@@ -844,6 +855,26 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!114 &1725475204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1725475198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4df87ec79880447a42fca5c193b8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertSpeed: 0
+  horzSpeed: 0
+  projectile: {fileID: 171456, guid: 984cf5241a548d94eb7ff19764e03b12, type: 2}
+  kboardToggle: {fileID: 1036935978}
+  controllerToggle: {fileID: 1874798039}
+  camDist: 5
+  adjust1: 0
+  adjust2: 0
+  adjust3: 0
 --- !u!1 &1874798037
 GameObject:
   m_ObjectHideFlags: 0

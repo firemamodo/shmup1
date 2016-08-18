@@ -12,7 +12,7 @@ public class fireBall : MonoBehaviour {
     void FixedUpdate()
     {
 
-        transform.Translate(new Vector3(0,0,-20) * Time.deltaTime);
+        transform.Translate(new Vector3(0,-50,0) * Time.deltaTime);
 
     }
 }
