@@ -1,18 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class fireBall : MonoBehaviour {
 
-   
+    int speed = 0;
 	// Use this for initialization
 	void Start () {
         Destroy(gameObject, 3);
+        switch (cameraControl.playeDirection)
+        {
+            case cameraControl.playerOrientation.Front:
+                speed = 50;
+            break;
+
+            case cameraControl.playerOrientation.Back:
+                speed = 50;
+            break;
+
+            case cameraControl.playerOrientation.Left:
+                speed = -50;
+                break;
+
+            case cameraControl.playerOrientation.Right:
+                speed = -50;
+                break;
+        }
+    
     }
 	
     void FixedUpdate()
     {
 
-        transform.Translate(new Vector3(0,-50,0) * Time.deltaTime);
+        transform.Translate(new Vector3(0, speed, 0) * Time.deltaTime);
 
     }
 }

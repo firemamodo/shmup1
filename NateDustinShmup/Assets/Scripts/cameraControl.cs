@@ -3,9 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class cameraControl : MonoBehaviour {
+public  class  cameraControl : MonoBehaviour {
 
-
+    public enum playerOrientation { Front, Back, Left, Right };
+    public static playerOrientation playeDirection = playerOrientation.Front;
     public float vertSpeed;
     public float horzSpeed;
     float speedMultiplier = 25;
@@ -75,6 +76,7 @@ public class cameraControl : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.A))
             {
+                playeDirection = playerOrientation.Left;
                 transform.Translate(new Vector3(-maxSpeed, 0, 0) * Time.deltaTime);
                 player.transform.rotation = Quaternion.Euler(0, 0, 270);
                 Debug.Log("A was pushed");
@@ -82,6 +84,7 @@ public class cameraControl : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.D))
             {
+                playeDirection = playerOrientation.Right;
                 transform.Translate(new Vector3(maxSpeed, 0, 0) * Time.deltaTime);
                 player.transform.rotation = Quaternion.Euler(0, 0, -270);
                 Debug.Log("D was pushed");
@@ -89,23 +92,42 @@ public class cameraControl : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.W))
             {
+                playeDirection = playerOrientation.Front;
                 transform.Translate(new Vector3(0, maxSpeed, 0) * Time.deltaTime);
-                player.transform.rotation = Quaternion.Euler(0, 0, -180);
+                player.transform.rotation = Quaternion.Euler(0, 0, 360);
                 Debug.Log("W was pushed");
             }
 
             if (Input.GetKey(KeyCode.S))
             {
+                playeDirection = playerOrientation.Back;
                 transform.Translate(new Vector3(0, -maxSpeed, 0) * Time.deltaTime);
-                player.transform.rotation = Quaternion.Euler(0, 0, -0);
+                player.transform.rotation = Quaternion.Euler(0, 0, -180);
                 Debug.Log("S was pushed");
             }
 
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                switch (playeDirection)
+                {
+                    case playerOrientation.Front:
+                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                        break;
 
+                    case playerOrientation.Back:
+                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                        break;
+
+                    case playerOrientation.Left:
+                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                        break;
+
+                    case playerOrientation.Right:
+                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                        break;
+                }
                 Debug.Log("Space!");
-                Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                
             }
 
         }
