@@ -28,7 +28,12 @@ public class fireBall : MonoBehaviour {
         }
     
     }
-	
+
+ /*   void OnDestroy()
+    {
+        print("Script was destroyed");
+
+    }*/
     void FixedUpdate()
     {
 

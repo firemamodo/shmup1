@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MainCanvas
   - CamTarget
+  - userInterface
   layers:
   - Default
   - TransparentFX

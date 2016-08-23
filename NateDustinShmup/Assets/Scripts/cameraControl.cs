@@ -13,20 +13,25 @@ public  class  cameraControl : MonoBehaviour {
     float keyboardSpeed;
     float maxSpeed=25;
 
-    // public Vector3 moveV3 = new Vector3(0, 0, 0);
-
     bool gamePad;
     bool keys;
 
+
     GameObject UImenu;
-
-
-    public GameObject projectile;
+    private bool optionsShowing = false;
 
     public Toggle kboardToggle;
     public Toggle controllerToggle;
+    public Text ammoText;
 
-    private bool isShowing = false;
+    public GameObject projectile;
+    int ammoLeft=25;
+
+
+    bool resetCam = false;
+    private GameObject playerCam;
+    private GameObject camTarget;
+    GameObject player;
 
 
 
@@ -34,12 +39,8 @@ public  class  cameraControl : MonoBehaviour {
     public float adjust1;
     public float adjust2;
     public float adjust3;
-    bool resetCam=false;
+    
 
-    private GameObject playerCam;
-    private GameObject camTarget;
-    GameObject player;
-    // Use this for initialization
     void Start () {
 
         playerCam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -48,8 +49,9 @@ public  class  cameraControl : MonoBehaviour {
 
 
         UImenu = GameObject.FindGameObjectWithTag("MainCanvas");
-        UImenu.SetActive(isShowing);
+        UImenu.SetActive(optionsShowing);
 
+        ammoText.text = ammoLeft.ToString();
     }
 
     float distanceTwoPoints(Vector3 V1, Vector3 V2)
@@ -65,8 +67,8 @@ public  class  cameraControl : MonoBehaviour {
 
         if (Input.GetKeyDown("escape"))
         {
-            isShowing = !isShowing;
-            UImenu.SetActive(isShowing);
+            optionsShowing = !optionsShowing;
+            UImenu.SetActive(optionsShowing);
         }
 
         if (kboardToggle.isOn == true)
@@ -108,25 +110,31 @@ public  class  cameraControl : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                switch (playeDirection)
+                if (ammoLeft > 0)
                 {
-                    case playerOrientation.Front:
-                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
-                        break;
+                    ammoLeft--;
+                    ammoText.text = ammoLeft.ToString();
+                    switch (playeDirection)
+                    {
+                        case playerOrientation.Front:
+                            Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                            break;
 
-                    case playerOrientation.Back:
-                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
-                        break;
+                        case playerOrientation.Back:
+                            Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                            break;
 
-                    case playerOrientation.Left:
-                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
-                        break;
+                        case playerOrientation.Left:
+                            Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                            break;
 
-                    case playerOrientation.Right:
-                        Instantiate(projectile, player.transform.position, player.transform.localRotation);
-                        break;
+                        case playerOrientation.Right:
+                            Instantiate(projectile, player.transform.position, player.transform.localRotation);
+                            break;
+                    }
+                    Debug.Log("Space!");
                 }
-                Debug.Log("Space!");
+                
                 
             }
 
